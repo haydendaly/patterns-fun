@@ -1,27 +1,25 @@
 import { serialize } from 'next-mdx-remote/serialize';
-import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
+import { MDXRemoteSerializeResult } from 'next-mdx-remote';
 import fs from 'fs';
 import { globby } from 'globby';
 import path from 'path';
 import matter from 'gray-matter';
-import SyntaxHighlighter from 'react-syntax-highlighter';
 
 import Menu from '@/components/Menu';
+import Page from '@/components/Page';
 
-const components = { SyntaxHighlighter };
-
-interface ChapterPageProps {
-  mdxSource: MDXRemoteSerializeResult;
+interface PageContainerProps {
+  source: MDXRemoteSerializeResult;
 }
 
-const ChapterPage = ({ mdxSource }: ChapterPageProps) => {
+const PageContainer = ({ source }: PageContainerProps) => {
   return (
     <>
       <Menu />
       <div
         style={{ position: 'absolute', left: 250, padding: 20, paddingTop: 10 }}
       >
-        <MDXRemote {...mdxSource} components={components} />
+        <Page source={source} />
       </div>
     </>
   );
@@ -61,16 +59,16 @@ const getStaticProps = async ({
   );
 
   const { data: frontMatter, content } = matter(markdownWithMeta);
-  const mdxSource = await serialize(content);
+  const source = await serialize(content);
 
   return {
     props: {
       frontMatter,
       slug,
-      mdxSource,
+      source,
     },
   };
 };
 
 export { getStaticProps, getStaticPaths };
-export default ChapterPage;
+export default PageContainer;

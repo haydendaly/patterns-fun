@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 const sections = [
   {
     name: 'General',
@@ -21,6 +23,21 @@ const sections = [
     ],
   },
 ];
+
+function toDashes(name: string) {
+  return name.replace(' ', '-').toLowerCase();
+}
+
+function getPath(section: string, chapter?: string, page?: string) {
+  const path = [toDashes(section)];
+  if (chapter) {
+    path.push(toDashes(chapter));
+    if (page) {
+      path.push(toDashes(page));
+    }
+  }
+  return path.join('/');
+}
 
 function Menu() {
   return (
@@ -47,7 +64,12 @@ function Menu() {
               {chapter?.pages
                 ? chapter.pages.map((page) => (
                     <div key={page.name}>
-                      <h4>{page.name}</h4>
+                      <Link
+                        href={getPath(section.name, chapter.name, page.name)}
+                        passHref
+                      >
+                        <h4>{page.name}</h4>
+                      </Link>
                     </div>
                   ))
                 : null}
