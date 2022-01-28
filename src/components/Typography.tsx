@@ -1,11 +1,11 @@
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { FaRegCopy } from 'react-icons/fa';
 import SyntaxHighlighter from 'react-syntax-highlighter';
-import style from 'react-syntax-highlighter/dist/cjs/styles/hljs/dracula';
+import style from 'react-syntax-highlighter/dist/cjs/styles/hljs/tomorrow-night-eighties';
 
-function SyntaxHighlighterWrapper({ children }) {
+export function Code({ children }) {
   return (
-    <div>
+    <div className="code-box">
       <CopyToClipboard onCopy={() => console.log('copied')} text={children}>
         <button
           type="button"
@@ -17,7 +17,7 @@ function SyntaxHighlighterWrapper({ children }) {
       </CopyToClipboard>
       <SyntaxHighlighter
         style={style}
-        customStyle={{ borderRadius: 10, padding: 10 }}
+        customStyle={{ borderRadius: 8, padding: 20, paddingBottom: 5 }}
         language="python"
       >
         {children}
@@ -25,5 +25,3 @@ function SyntaxHighlighterWrapper({ children }) {
     </div>
   );
 }
-
-export default SyntaxHighlighterWrapper;

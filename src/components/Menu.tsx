@@ -28,7 +28,7 @@ function Menu() {
   return (
     <div
       style={{
-        width: 250,
+        width: 300,
         height: '100vh',
         overflow: 'scroll',
         position: 'absolute',
