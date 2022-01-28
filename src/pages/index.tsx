@@ -16,14 +16,11 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>Welcome to Patterns 101!</h1>
+        <h1 className={styles.title}>Welcome to Patterns!</h1>
 
         <p className={styles.description}>
-          Get started by editing{` `}
-          <code className={styles.code}>pages/index.tsx</code>
+          An open-source guide to cracking interview questions
         </p>
-
-        <p className={styles.description}>This is not an official starter!</p>
 
         <div className={styles.grid}>
           <a href="https://nextjs.org/docs" className={styles.card}>

@@ -1,11 +1,14 @@
+import { FC } from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { FaRegCopy } from 'react-icons/fa';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import style from 'react-syntax-highlighter/dist/cjs/styles/hljs/tomorrow-night-eighties';
 
-export function Code({ children }) {
+export const Code: FC = ({ children }) => {
   return (
     <div className="code-box">
+      {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
+      {/* @ts-ignore */}
       <CopyToClipboard onCopy={() => console.log('copied')} text={children}>
         <button
           type="button"
@@ -24,4 +27,4 @@ export function Code({ children }) {
       </SyntaxHighlighter>
     </div>
   );
-}
+};
