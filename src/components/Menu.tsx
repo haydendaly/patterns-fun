@@ -4,9 +4,9 @@ const sections = [
   {
     name: 'General',
     chapters: [
-      { name: 'Introduction' },
-      { name: 'Writing Good Code' },
-      { name: 'Practice' },
+      { name: 'Introduction', pages: [] },
+      { name: 'Writing Good Code', pages: [] },
+      { name: 'Practice', pages: [] },
     ],
   },
   {
