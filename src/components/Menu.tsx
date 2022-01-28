@@ -1,40 +1,25 @@
 import Link from 'next/link';
 
-const sections = [
-  {
-    name: 'General',
-    chapters: [
-      { name: 'Introduction', pages: [] },
-      { name: 'Writing Good Code', pages: [] },
-      { name: 'Practice', pages: [] },
-    ],
-  },
-  {
-    name: 'Patterns',
-    chapters: [
-      {
-        name: 'Range Queries',
-        pages: [
-          { name: 'Matrix Range Queries' },
-          { name: 'Tree Range Queries' },
-          { name: 'Challenge Problems' },
-        ],
-      },
-    ],
-  },
-];
+import toc from '@/chapters/toc';
 
 function toDashes(name: string) {
-  return name.replace(' ', '-').toLowerCase();
+  return name.replaceAll(' ', '-').toLowerCase();
 }
 
-function getPath(section: string, chapter?: string, page?: string) {
-  const path = [toDashes(section)];
+type bookObj = {
+  name: string;
+  default?: string;
+};
+
+function getPath(section: bookObj, chapter?: bookObj, page?: bookObj) {
+  const path = [toDashes(section.name)];
   if (chapter) {
-    path.push(toDashes(chapter));
+    path.push(toDashes(chapter.name));
     if (page) {
-      path.push(toDashes(page));
+      path.push(toDashes(page.name));
     }
+  } else if (section.default) {
+    path.push(toDashes(section.default));
   }
   return path.join('/');
 }
@@ -44,30 +29,33 @@ function Menu() {
     <div
       style={{
         width: 250,
+        height: '100vh',
+        overflow: 'scroll',
         position: 'absolute',
         left: 0,
-        height: '100vh',
         padding: 10,
+        paddingLeft: 20,
         backgroundColor: '#F5F7F9',
         borderStyle: 'none solid none none',
         borderWidth: 1,
         borderColor: '#D3DCE4',
       }}
     >
-      <h1>Chapters</h1>
-      {sections.map((section) => (
+      <h1>patterns.fun</h1>
+      {toc.map((section) => (
         <div key={section.name}>
-          <h2>{section.name}</h2>
+          <Link href={getPath(section)} passHref>
+            <h2>{section.name}</h2>
+          </Link>
           {section.chapters.map((chapter) => (
             <div key={chapter.name}>
-              <h3>{chapter.name}</h3>
+              <Link href={getPath(section, chapter)} passHref>
+                <h3>{chapter.name}</h3>
+              </Link>
               {chapter?.pages
                 ? chapter.pages.map((page) => (
                     <div key={page.name}>
-                      <Link
-                        href={getPath(section.name, chapter.name, page.name)}
-                        passHref
-                      >
+                      <Link href={getPath(section, chapter, page)} passHref>
                         <h4>{page.name}</h4>
                       </Link>
                     </div>

@@ -16,11 +16,7 @@ const PageContainer = ({ source }: PageContainerProps) => {
   return (
     <>
       <Menu />
-      <div
-        style={{ position: 'absolute', left: 250, padding: 20, paddingTop: 10 }}
-      >
-        <Page source={source} />
-      </div>
+      <Page source={source} />
     </>
   );
 };
