@@ -11,8 +11,8 @@ The sliding window pattern is used to perform a query on a sub-array of a given 
 
 ### Requirements
 
-* Input is a linear data structure (linked list, array, or string)
-* Asked to find the longest/shortest substring, subarray, or a desired value
+- Input is a linear data structure (linked list, array, or string)
+- Asked to find the longest/shortest substring, subarray, or a desired value
 
 ## Max Consecutive Ones III
 
@@ -54,7 +54,7 @@ def longest_ones(nums, k):
 
 ## Minimum Size Subarray Sum
 
-_Original Problem:_ [_LeetCode #209 (Medium)_](https://leetcode.com/problems/minimum-size-subarray-sum/)__
+_Original Problem:_ [_LeetCode #209 (Medium)_](https://leetcode.com/problems/minimum-size-subarray-sum/)\_\_
 
 Given an array of positive numbers and a positive number `target`, find the length of the smallest contiguous subarray whose sum is greater than or equal to `target`. Return `0` if no such sub-array exists.
 
@@ -64,7 +64,7 @@ Given an array of positive numbers and a positive number `target`, find the leng
 def smallest_subarray_with_target_sum(target, nums):
     """Takes array of integers nums and integer target, returns smallest sub-array with sum equivalent to target"""
     pass
-    
+
 # Test Case 1
 target, nums, ans = 7, [2, 1, 5, 2, 3, 2], 2
 assert smallest_subarray_with_target_sum(target, nums) == ans
@@ -84,7 +84,3 @@ def smallest_subarray_with_target_sum(target, nums):
             start += 1
     return smallest if smallest != float('inf') else -1
 ```
-
-\
-
-

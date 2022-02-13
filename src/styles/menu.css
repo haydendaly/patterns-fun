@@ -1,0 +1,36 @@
+.menu-section {
+  margin-bottom: 30px;
+}
+
+.menu-section-text {
+  font-size: 16px;
+  padding-left: 15px;
+}
+
+.menu-item {
+  height: 38px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding-left: 15px;
+}
+
+.menu-item-selected {
+  background-color: #fff;
+  border: solid;
+  border-width: thin;
+  border-right-width: 0;
+  border-color: #d3dce4;
+  color: #356ddb;
+  display: flex;
+  padding-left: 14px;
+}
+
+.menu-chapter {
+  height: 38px;
+  padding-left: 15px;
+}
+
+.menu-page {
+  height: 38px;
+}

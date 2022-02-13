@@ -3,23 +3,22 @@ a {
   text-decoration: none;
 }
 
-h1,
-h2,
-h3 {
-  font-family: Inter-Bold;
-  color: #000;
-}
-
-h1 {
+.typography-h1 {
   font-size: 3em;
+  color: #000;
+  font-family: Inter-Bold;
 }
 
-h2 {
+.typography-h2 {
   font-size: 1.75em;
+  color: #000;
+  font-family: Inter-Medium;
 }
 
-h3 {
-  font-size: 1.25em;
+.typography-h3 {
+  font-size: 1.5em;
+  color: #000;
+  font-family: Inter-Medium;
 }
 
 .code-box {
