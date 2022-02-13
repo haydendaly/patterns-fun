@@ -52,7 +52,7 @@ const toc = [
     chapters: [
       {
         name: 'Disjoint Sets and Union Find',
-        pages: [{ name: 'Variations' }, { name: 'Challenge Problems' }],
+        pages: [{ name: 'Variations' }],
       },
     ],
   },
